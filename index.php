@@ -46,7 +46,7 @@ if ($result->num_rows > 0) {
 $mysqli->close();
 ?>
 <table>
-    <tr></tr>
+    <tr>TEST1</tr>
 </table>
 
 </body>
