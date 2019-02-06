@@ -37,7 +37,7 @@ $result = $mysqli->query($sql);
 if ($result->num_rows > 0) {
     /* output data of each row */
     while($row = $result->fetch_assoc()) {
-        echo "id: " . $row["id"]. "<br> Tytuł: " . $row["title"]. "<br> Treść:  " . $row["content"]. "<br>";
+        echo ("<hr>id: " . $row["id"]. "<br> Tytuł: " . $row["title"]. "<br> Treść:  " . $row["content"]. "<br>");
     }
 } else {
     echo "0 results";
@@ -45,6 +45,9 @@ if ($result->num_rows > 0) {
 
 $mysqli->close();
 ?>
+<table>
+    <tr></tr>
+</table>
 
 </body>
 </html>
