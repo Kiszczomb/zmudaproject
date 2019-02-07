@@ -1,6 +1,59 @@
-div {
-    width: 300px;
-    border: 25px solid green;
-    padding: 25px;
-    margin: 25px;
+body {
+  margin: 0;
+  font-family: 'Roboto Mono';
+  font-size: 16px;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 4px 6px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  background: #ddd;
+  color: black;
+}
+.navbar a.notification {
+  float: right;
+  color: rgb(253, 17, 17);
+}
+
+
+.navbar a1 {
+  font-weight: bold;
+  font-size: 16;
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 4px 6px;
+  text-decoration: none;
+}
+
+.main {
+  margin-top: 60px;
+}
+.main div {
+    border: 2px solid green;
+    border-radius: 10px;
+    padding: 4px;
+    margin: auto;
+    max-width: 500px;
   }
+.main div.title {
+  margin: 4px;
+}
+.main div.content {
+  margin: 4px;
+}
