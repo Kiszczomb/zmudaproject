@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
         <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
+        <!-- <script src="main.js"></script> -->
     </head>
     <body>
         <?php
@@ -15,7 +16,8 @@
         <div class="navbar">
             <a1>Newsletter</a1>
             <a href="#home">Home</a>
-            <a href="#form">Dodaj wpis</a>
+            <a onclick="document.getElementById('modalForm').style.display='block'">Dodaj wpis</a>
+            <input type="text" placeholder="Szukaj...">
             <?php
             /* check connection to DB */
             if (mysqli_connect_errno()) {
@@ -35,27 +37,39 @@
             }
             ?>
         </div>
-            <?php
-            /* make SQL request*/
-            $sql = "SELECT id, title, content FROM news";
-            $result = $mysqli->query($sql);
-            echo ('
-            <div class="main">
-            ');
-            if ($result->num_rows > 0) {
-                /* output data of each row */
-                while($row = $result->fetch_assoc()) {
-                    echo ('
-                        <div class="title"><p class="title">' . $row["id"]. ": " . $row["title"]. '</p></div>
-                        <div class="content">' . $row["content"]. "</div>"
-                    );
-                }
-            } else {
-                echo "0 results";
+        <?php
+        /* make SQL request*/
+        $sql = "SELECT id, title, content, reg_date FROM news";
+        $result = $mysqli->query($sql);
+        ?>
+        <div id="modalForm" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="document.getElementById('modalForm').style.display='none'">&times;</span>
+                <p>TEXT IN MODAL</p>
+            </div>
+        </div>
+        <?php
+        echo ('
+        <div class="main">
+        ');
+        if ($result->num_rows > 0) {
+            /* output data of each row */
+            while($row = $result->fetch_assoc()) {
+                $reg_date = strtotime( $row["reg_date"] );
+                $reg_dateFormatted = date( 'd.m.Y', $reg_date );
+                echo ('
+                    <div class="post">
+                        <div class="title"><p class="title">' . $row["id"]. ": " . $row["title"] . '<span class="date">' . $reg_dateFormatted . '</span></p></div>
+                        <div class="content">' . $row["content"]. '</div>
+                    </div>
+                ');
             }
-            echo ('</div>');
-            
-            $mysqli->close();
-            ?>
+        } else {
+            echo "0 results";
+        }
+        echo ('</div>');
+        
+        $mysqli->close();
+        ?>
     </body>
 </html>

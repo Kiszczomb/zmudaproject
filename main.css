@@ -25,10 +25,17 @@ body {
   color: black;
 }
 .navbar a.notification {
-  float: right;
+  float: inherit;
   color: rgb(253, 17, 17);
 }
 
+.navbar input[type=text] {
+  float: right;
+  padding: 4px 6px;
+  border: none;
+  margin-top: 3px;
+  margin-right: 3px;
+}
 
 .navbar a1 {
   font-weight: bold;
@@ -38,22 +45,68 @@ body {
   color: #f2f2f2;
   text-align: center;
   padding: 4px 6px;
+  margin-right: 16px;
   text-decoration: none;
 }
 
 .main {
   margin-top: 60px;
+  
 }
 .main div {
-    border: 2px solid green;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 4px;
     margin: auto;
     max-width: 500px;
   }
+.main div.post {
+  margin: 4px;
+  border: 3px solid rgb(51, 51, 51);
+  align-self: middle;
+}
 .main div.title {
+  border: 4px solid green;
   margin: 4px;
 }
 .main div.content {
+  border: 2px solid green;
   margin: 4px;
+}
+.main span.date {
+  float: right;
+  color: rgb(51, 51, 51);
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
